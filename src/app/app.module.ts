@@ -4,9 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,11 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

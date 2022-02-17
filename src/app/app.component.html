@@ -1,27 +1,41 @@
 <div class="sr-container">
   <div class="sr-container-main">
     <div class="sr-container-heading">
-      <div class="sr-container-heading-title"><h1>Contact List</h1></div>
+      <div class="sr-container-heading-title">
+        <mat-icon class="sr-container-heading-title-icon">contacts</mat-icon>
+        <h1 class="sr-container-heading-title-text">Contact List</h1>
+      </div>
       <div class="sr-container-heading-button">
-        <button mat-raised-button color="primary" (click)="openDialog()">Add Contact</button>
+        <button mat-raised-button color="primary" (click)="openDialog()">
+          Add Contact
+        </button>
       </div>
     </div>
-    <table>
+
+    <div class="sr-container-main-loader" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <table *ngIf="!loading">
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Phone</th>
+        <th>
+          <span>Phone</span>
+        </th>
         <th>Action</th>
       </tr>
       <!-- add new entry -->
       <tr *ngIf="addContact && emptyContact">
-        <td><input [(ngModel)]='emptyContact.firstName'></td>
-        <td><input [(ngModel)]='emptyContact.lastName '></td>
-        <td><input [(ngModel)]='emptyContact.phone'></td>
-          <td>
-            <button mat-raised-button color="primary" (click)="saveContact()">Save</button>
-            <button mat-button (click)="this.addContact = false">Delete</button>
-          </td>
+        <td><input [(ngModel)]="emptyContact.firstName" /></td>
+        <td><input [(ngModel)]="emptyContact.lastName" /></td>
+        <td><input [(ngModel)]="emptyContact.phone" /></td>
+        <td>
+          <button mat-raised-button color="primary" (click)="saveContact()">
+            Save
+          </button>
+          <button mat-button (click)="this.addContact = false">Delete</button>
+        </td>
       </tr>
       <!-- contact rows -->
       <tr *ngFor="let item of objContacts">
@@ -30,16 +44,27 @@
           <td>{{ item.lastName }}</td>
           <td>{{ item.phone }}</td>
           <td>
-            <button mat-raised-button color="primary" (click)="item.edit = true">Edit</button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="item.edit = true"
+            >
+              Edit
+            </button>
             <button mat-button (click)="deleteContact(item.id)">Delete</button>
           </td>
         </ng-container>
         <ng-container *ngIf="item.edit">
-          <td><input [(ngModel)]='item.firstName'></td>
-          <td><input [(ngModel)]='item.lastName'></td>
-          <td><input [(ngModel)]='item.phone'></td>
+          <td><input [(ngModel)]="item.firstName" /></td>
+          <td><input [(ngModel)]="item.lastName" /></td>
+          <td><input [(ngModel)]="item.phone" /></td>
           <td>
-            <button mat-raised-button color="primary" (click)="item.edit = false">Save</button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="item.edit = false">
+              Save
+            </button>
             <button mat-button (click)="deleteContact(item.id)">Delete</button>
           </td>
         </ng-container>

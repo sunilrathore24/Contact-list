@@ -13,7 +13,14 @@
     flex-direction: column;
     background-color: white;
     margin: 1rem;
+
+    &-loader {
+      display: flex;
+      justify-content: center;
+      margin: 2rem;
+    }
   }
+
 
   &-heading {
     display: flex;
@@ -23,9 +30,19 @@
     border-radius: 0.3333rem 0.3333rem 0 0;
     flex-direction: column;
 
+
     &-title {
       display: flex;
       justify-content: center;
+      margin: 1rem;
+
+      &-icon{
+        padding: 0.3rem;
+      }
+
+      &-text{
+        font-weight: bold;
+      }
     }
 
     &-button {
